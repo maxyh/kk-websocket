@@ -1,0 +1,26 @@
+{
+  "name": "kk-websocket",
+  "version": "0.1.2",
+  "description": "To make the same code work seamlessly on Node.js and the browser, the ws and WebSocket wrapper.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxyh/kk-websocket.git"
+  },
+  "keywords": [
+    "kk-websocketa",
+    "websocket",
+    "ws",
+    "browser",
+    "node"
+  ],
+  "author": "@maxyh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maxyh/kk-websocket/issues"
+  },
+  "homepage": "https://github.com/maxyh/kk-websocket#readme"
+}
