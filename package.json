@@ -1,6 +1,6 @@
 {
   "name": "kk-websocket",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "To make the same code work seamlessly on Node.js and the browser, the ws and WebSocket wrapper.",
   "main": "index.js",
   "scripts": {
