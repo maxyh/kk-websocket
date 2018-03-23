@@ -1,5 +1,6 @@
 # kk-websocket
 
+###_____Work in Progress. Not Complete.______
 Wrapper of ws and WebSocket.
 
 It uses:
