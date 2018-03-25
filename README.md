@@ -1,5 +1,7 @@
 # kk-websocket
 
+[![Coverage Status](https://coveralls.io/repos/github/maxyh/kk-websocket/badge.svg?branch=master)](https://coveralls.io/github/maxyh/kk-websocket?branch=master)
+
 ###_____Work in Progress. Not Complete.______
 Wrapper of ws and WebSocket.
 
