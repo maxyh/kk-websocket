@@ -1,5 +1,7 @@
 # kk-websocket
-
+[![Version npm](https://img.shields.io/npm/v/kk-websocket.svg)](https://www.npmjs.com/package/kk-websocket)
+[![Linux Build](https://img.shields.io/travis/maxyh/kk-websocket/master.svg)](https://travis-ci.org/maxyh/kk-websocket)
+[![Windows Build](https://ci.appveyor.com/api/projects/status/github/maxyh/kk-websocket?branch=master&svg=true)](https://ci.appveyor.com/project/maxyh/kk-websocket)
 [![Coverage Status](https://coveralls.io/repos/github/maxyh/kk-websocket/badge.svg?branch=master)](https://coveralls.io/github/maxyh/kk-websocket?branch=master)
 
 ###_____Work in Progress. Not Complete.______
