@@ -8,9 +8,10 @@
 var _eventemitter = require("eventemitter3");
 
 var BrowserWebSocket = null;
-if (typeof WebSocket !== 'undefined') {
+/*if (typeof WebSocket !== 'undefined') {
     BrowserWebSocket = WebSocket;
-} else if (typeof MozWebSocket !== 'undefined') {
+} else */
+if (typeof MozWebSocket !== 'undefined') {
     BrowserWebSocket = MozWebSocket;
 } else if (typeof global !== 'undefined') {
     BrowserWebSocket = global.WebSocket || global.MozWebSocket;
@@ -118,10 +119,10 @@ function WebSocket(address, options, protocols) {
 
 WebSocket.prototype = Object.create(_eventemitter.prototype, {
     constructor: {
-      value: WebSocket,
-      enumerable: false,
-      writable: true,
-      configurable: true
+        value: WebSocket,
+        enumerable: false,
+        writable: true,
+        configurable: true
     }
 });
 
@@ -269,9 +270,12 @@ Object.defineProperty(WebSocket.prototype, 'send', {
     value: function send(data, options, callback) {
         try {
             this.socket.send(data);
-            callback();
+            if (callback) {
+                callback();
+            }
         } catch (error) {
-            callback(error);
+            //callback(error);
+            console.log(error);
         }
     }
 });
