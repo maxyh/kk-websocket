@@ -87,12 +87,13 @@ module.exports = config => {
         reporters: ['mocha', 'coverage'],
         colors: true,
         browsers: [
-            'ChromeCanary',
-            'ChromeHeadless',
+            //'PhantomJS',
+            //'ChromeHeadless',
+            'Chrome_travis_ci',
             //'Chrome',
+            //'ChromeCanary',
             //'Safari',
             //'Firefox',
-            //'PhantomJS'
         ],
         logLevel: config.LOG_INFO,
         client: {
@@ -112,6 +113,10 @@ module.exports = config => {
             ChromeDebug: {
                 base: 'Chrome',
                 flags: ['--remote-debugging-port=9333']
+            },
+            Chrome_travis_ci: {
+                base: 'Chrome',
+                flags: ['--no-sandbox']
             }
         },
         browserConsoleLogOptions: {
