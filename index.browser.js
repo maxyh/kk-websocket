@@ -71,10 +71,10 @@ function WebSocket(address, options, protocols) {
      */  
     _this.socket.onmessage = function (event) {
         if (_this.onmessage) {
-            _this.onmessage.call(_this, event);
+            _this.onmessage.call(_this, event.data);
             //_this.onmessage.call(this, event.data);
         }
-        return _this.emit("message", event);
+        return _this.emit("message", event.data);
         //return _this.emit("message", event.data);
     };
     /** 

@@ -1,15 +1,19 @@
 # kk-websocket
+
 [![Version npm](https://img.shields.io/npm/v/kk-websocket.svg)](https://www.npmjs.com/package/kk-websocket)
 [![Linux Build](https://img.shields.io/travis/maxyh/kk-websocket/master.svg)](https://travis-ci.org/maxyh/kk-websocket)
 [![Windows Build](https://ci.appveyor.com/api/projects/status/github/maxyh/kk-websocket?branch=master&svg=true)](https://ci.appveyor.com/project/maxyh/kk-websocket)
 [![Coverage Status](https://coveralls.io/repos/github/maxyh/kk-websocket/badge.svg?branch=master)](https://coveralls.io/github/maxyh/kk-websocket?branch=master)
 
-###_____Work in Progress. Not Complete.______
+## ______Work in Progress. Not Complete.______
+
 Wrapper of ws and WebSocket.
 
 It uses:
+
 - [ws](https://github.com/websockets/ws) on Node
-- [global.WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) in browsers
+- [global.WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
+  in browsers
 
 ## Limitations
 
@@ -27,7 +31,7 @@ Some major differences:
 
 You need to install both this package and [ws](https://github.com/websockets/ws):
 
-```
+```bash
 > npm i kk-websocket ws
 ```
 
@@ -57,3 +61,36 @@ ws.on('message', function incoming(data) {
   }, 500);
 });
 ```
+
+## Files
+
+- `.travis.yml`(Travis CI)
+  `npm run coveralls`
+- `package.json`(NPM)
+  - prepublishOnly
+    `nps test clean build`
+  - coveralls
+    `npm run coverage && ./node_modules/coveralls/bin/coveralls.js < ./coverage/lcov.info`
+  - coverage
+    ```bash
+    istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec --exit
+    ```
+  - test
+    `nps test`
+  - start
+    `nps`
+- `package-scripts.js`(NPS)
+  - build
+  - lint
+  - clean
+  - test
+    - node
+    - browser
+    - bundle
+  - coveralls
+  - prebuildDocs
+  - buildDocs
+  - postbuildDocs
+  - prewatchDocs
+  - watchDocs
+- `karma.conf.js`(Karma)

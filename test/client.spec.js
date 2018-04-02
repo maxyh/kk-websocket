@@ -39,8 +39,9 @@ describe("Client", function() {
                     });
                     done();
                 });
+        } else { 
+            done();
         }
-        done();
     });
 
     after(function() {
@@ -58,7 +59,7 @@ describe("Client", function() {
             client.send("xxxx");
         });
         client.on("message", function(message) {
-            console.log('received: %s', message.data);
+            console.log('received: %s', message);
             done();
             client.close();
         });

@@ -11,7 +11,7 @@ const path = require('path');
  */
 function test (testName, mochaParams) {
     const coverageCommand = `nyc --no-clean --report-dir coverage/reports/${testName}`;
-    const mochaCommand = `node ${path.join('bin', 'mocha')}`; // Include 'node' and path.join for Windows compatibility
+    const mochaCommand = `node ${path.join('node_modules', 'mocha', 'bin', 'mocha')}`; // Include 'node' and path.join for Windows compatibility
     return `${process.env.COVERAGE ? coverageCommand : ''} ${mochaCommand} ${mochaParams}`.trim();
 }
 
@@ -40,26 +40,26 @@ module.exports = {
         test: {
             default: 'nps test.all',
             all: {
-                script: 'nps lint.code test.node test.browser test.bundle',
+                script: 'nps lint.code test.node test.browser',
                 description: 'Lint code and runs node / browser environment tests'
             },
             node: {
                 default: 'nps test.node.all',
                 all: {
                     script: `nps ${[
-                        'test.node.bdd'
+                        'test.node.unit'
                     ].join(' ')}`,
                     description: 'Run all tests for node environment'
                 },
-                bdd: {
-                    script: test('bdd', '--ui bdd test/interfaces/bdd.spec'),
-                    description: 'Test Node BDD interface'
+                unit: {
+                    script: test('unit', '"test/*spec.js"'),
+                    description: 'Run Node unit tests'
                 },
             },
             browser: {
                 default: 'nps test.browser.all',
                 all: {
-                    script: 'nps clean build.mochajs test.browser.unit test.browser.bdd test.browser.tdd test.browser.qunit test.browser.esm',
+                    script: 'nps clean build test.browser.unit',
                     description: 'Compile Mocha and run all tests in browser environment'
                 },
                 unit: {
@@ -70,7 +70,7 @@ module.exports = {
             bundle: {
                 default: 'nps test.bundle.all',
                 all: {
-                    script: 'nps clean build.mochajs test.bundle.amd',
+                    script: 'nps clean build test.bundle.amd',
                     description: 'Compile Mocha and run all tests for bundle files'
                 },
                 amd: {
@@ -79,8 +79,12 @@ module.exports = {
                 }
             }
         },
+        coverage: {
+            script: 'nyc ./node_modules/mocha/bin/_mocha',
+            description: 'Test coverage'
+        },
         coveralls: {
-            script: 'nyc report --reporter=text-lcov | coveralls',
+            script: 'nps coverage && nyc report --reporter=text-lcov | coveralls',
             description: 'Send code coverage report to coveralls (run during CI)'
         },
         prebuildDocs: 'rm -rf docs/_dist && node scripts/docs-update-toc.js',
