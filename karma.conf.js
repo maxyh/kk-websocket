@@ -88,13 +88,12 @@ module.exports = config => {
         colors: true,
         browsers: [
             //'PhantomJS',
-            //'ChromeHeadless',
-            'Chrome_travis_ci',
+            'ChromeHeadless',
             //'Chrome',
             //'ChromeCanary',
-            //'Safari',
-            //'Firefox',
             'FirefoxHeadless',
+            //'Firefox',
+            //'Safari',
         ],
         logLevel: config.LOG_INFO,
         client: {
@@ -115,9 +114,13 @@ module.exports = config => {
                 base: 'Chrome',
                 flags: ['--remote-debugging-port=9333']
             },
+            ChromeHeadless_travis_ci: {
+                base: 'ChromeHeadless',
+                flags: ['--no-sandbox']                
+            },
             Chrome_travis_ci: {
                 base: 'Chrome',
-                //flags: ['--no-sandbox']
+                flags: ['--no-sandbox']
             }
         },
         browserConsoleLogOptions: {
@@ -163,6 +166,10 @@ module.exports = config => {
                 };
                 console.error('Configured SauceLabs');
             } else {
+                cfg.browsers = [
+                    'ChromeHeadless_travis_ci',
+                    'Chrome_travis_ci'
+                ]; 
                 console.error('No SauceLabs credentials present');
             }
         } else if (env.APPVEYOR) {
