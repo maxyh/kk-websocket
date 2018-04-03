@@ -64,9 +64,11 @@ ws.on('message', function incoming(data) {
 
 ## Files
 
-- `.travis.yml`(Travis CI)
-  `npm run coveralls`
-- `package.json`(NPM)
+- `.travis.yml` - Travis CI
+  ```bash
+  > npm run coveralls
+  ```
+- `package.json` - NPM
   - prepublishOnly
     ```bash
     > nps test clean build
@@ -78,7 +80,8 @@ ws.on('message', function incoming(data) {
     ```
   - coverage
     ```bash
-    > istanbul coverage
+    > nps coverage
+    # nyc ./node_modules/mocha/bin/_mocha
     ```
   - test
     ```bash
@@ -88,7 +91,7 @@ ws.on('message', function incoming(data) {
     ```bash
     > nps
     ```
-- `package-scripts.js`(NPS)
+- `package-scripts.js` - NPS
   - build
   - lint
   - clean
@@ -96,6 +99,7 @@ ws.on('message', function incoming(data) {
     - node
     - browser
     - bundle
+  - coverage
   - coveralls
   - prebuildDocs
   - buildDocs
