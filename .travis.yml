@@ -5,6 +5,9 @@ sudo: false  # no need for virtualization.
 addons:
   chrome: stable
   firefox: latest
+  # sauce_connect:
+  #   username: "Your Sauce Labs username"
+  #   access_key: "Your Sauce Labs access key"
 language: node_js
 node_js:
    - "6.11"

@@ -41,7 +41,7 @@ module.exports = config => {
     const cfg = {
         plugins: [
             'karma-*',
-
+            
             // inlined plugins
             {'framework:ws-server': ['factory', createWsServer]},
         ],
@@ -95,6 +95,7 @@ module.exports = config => {
             //'Firefox',
             //'Safari',
         ],
+        browserNoActivityTimeout: 30000,
         logLevel: config.LOG_INFO,
         client: {
             mocha: {
@@ -170,7 +171,7 @@ module.exports = config => {
                     'ChromeHeadless_travis_ci',
                     'Chrome_travis_ci',
                     'FirefoxHeadless',
-                    'Firefox'
+                    //'Firefox'
                 ]; 
                 console.error('No SauceLabs credentials present');
             }

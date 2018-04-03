@@ -68,17 +68,26 @@ ws.on('message', function incoming(data) {
   `npm run coveralls`
 - `package.json`(NPM)
   - prepublishOnly
-    `nps test clean build`
+    ```bash
+    > nps test clean build
+    ```
   - coveralls
-    `npm run coverage && ./node_modules/coveralls/bin/coveralls.js < ./coverage/lcov.info`
+    ```bash
+    > nps coveralls
+    # nps coverage && nyc report --reporter=text-lcov | coveralls
+    ```
   - coverage
     ```bash
-    istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec --exit
+    > istanbul coverage
     ```
   - test
-    `nps test`
+    ```bash
+    > nps test
+    ```
   - start
-    `nps`
+    ```bash
+    > nps
+    ```
 - `package-scripts.js`(NPS)
   - build
   - lint

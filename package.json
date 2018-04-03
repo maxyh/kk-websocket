@@ -9,10 +9,7 @@
     "start": "nps",
     "test": "nps test",
     "coverage": "nps coverage",
-    "coveralls": "nps coveralls",
-    "test_node": "mocha --exit test/*spec.js",
-    "coverage_node": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec --exit",
-    "coveralls_node": "npm run-script coverage_node && ./node_modules/coveralls/bin/coveralls.js < ./coverage/lcov.info"
+    "coveralls": "nps coveralls"
   },
   "repository": {
     "type": "git",
