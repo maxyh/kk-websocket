@@ -168,7 +168,9 @@ module.exports = config => {
             } else {
                 cfg.browsers = [
                     'ChromeHeadless_travis_ci',
-                    'Chrome_travis_ci'
+                    'Chrome_travis_ci',
+                    'FirefoxHeadless',
+                    'Firefox'
                 ]; 
                 console.error('No SauceLabs credentials present');
             }
