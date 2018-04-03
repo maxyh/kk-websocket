@@ -117,7 +117,7 @@ module.exports = config => {
             },
             Chrome_travis_ci: {
                 base: 'Chrome',
-                flags: ['--no-sandbox']
+                //flags: ['--no-sandbox']
             }
         },
         browserConsoleLogOptions: {
