@@ -94,6 +94,7 @@ module.exports = config => {
             //'ChromeCanary',
             //'Safari',
             //'Firefox',
+            'FirefoxHeadless',
         ],
         logLevel: config.LOG_INFO,
         client: {
